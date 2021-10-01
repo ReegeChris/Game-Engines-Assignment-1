@@ -7,13 +7,16 @@ To scope it for this assignment I chose to have limited detail on design, to pol
 Controls:
 Spacebar to invert gravity
 
-Object Inventory
-•	Scripts 
-o	One used for player movement
+Object Inventory:
+
+Scripts 
+o One used for player movement
 o	One used for respawning the player after failure
-•	Models
+
+Models
 o	Low poly models for the base prototype, not extreme detail
 o	Environment is also less detailed for base prototype
+
 •	Textures
 o	Base materials for base prototype. I’m using base materials to get the general idea across.
 
