@@ -4,20 +4,22 @@ Game Description
 My game is a 2D side scroller. The core gameplay is to reach the end of the level by dodging obstacles using inversions in gravity.  
 To scope it for this assignment I chose to have limited detail on design, to polish and create engaging gameplay.
 
+Controls
+Spacebar to invert gravity
+
 Object Inventory
 •	Scripts 
-	o	One used for player movement
-	o	One used for respawning the player after failure
-
+o	One used for player movement
+o	One used for respawning the player after failure
 •	Models
-	o	Low poly models for the base prototype, not extreme detail
-	o	Environment is also less detailed for base prototype
-
+o	Low poly models for the base prototype, not extreme detail
+o	Environment is also less detailed for base prototype
 •	Textures
-	o	Base materials for base prototype. I’m using base materials to get the general idea across.
+o	Base materials for base prototype. I’m using base materials to get the general idea across.
 
 
 References Used for scripts:
 https://gamedev.stackexchange.com/questions/88433/how-to-reverse-gravity-in-unity
 https://www.youtube.com/watch?v=FPU3uR3HYGo
-
+https://www.youtube.com/watch?v=pyb3cKrj1ZE
+//https://generalistprogrammer.com/unity/unity-2d-how-to-make-camera-follow-player/
