@@ -13,18 +13,20 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody rb;
     private float speed;
-    private float dirX = 4f;
+    private float dirX = 7f;
 
     //Jump logic variables
-    public float jumpForce = 10f;
+    public float jumpForce = 5f;
+    public float gravityForce = 20f;
     private bool isGrounded = false;
-    public float Gravity = 1;
+    private float Gravity = 1;
+    private bool reverseGravity = false;
 
     // Start is called before the first frame update
     void Start()
     {
         //Set player movement speed
-       speed = 6.0f;
+       speed = 20.0f;
        rb = GetComponent<Rigidbody>();
         
 
@@ -35,40 +37,43 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-          
             //Gravity flipping mechanic
             if (isGrounded == true)
             {
+                reverseGravity = !reverseGravity;
+
                 //if the gravity is set to one and is grounded,
                 // when the player presses the space bar, gravity is inverted
-                if (Gravity == 1)
+                if (reverseGravity == false)
                 {
                     //If the spacebar is pressed, flip the gravity on the rigid body
-                    Physics.gravity = new Vector3(0f, -1f, 0f);
+                    Physics.gravity = new Vector3(0f, -9.8f, 0f);
 
                     //Velocity is applied to the rigidbody with transform.up
-                    rb.velocity = transform.up * jumpForce * Time.deltaTime;
+                   // rb.velocity = transform.up * jumpForce * Time.deltaTime;
+                    rb.AddForce(new Vector3(0f, gravityForce, 0f), ForceMode.Impulse);
 
                     //Change the Gravity value to negative 1
-                    Gravity = -1;
+                   // Gravity = -1;
 
                 }
-                //Since Gravity is et to -1 once the player flips to the other platform, 
+                //Since Gravity is set to -1 once the player flips to the other platform, 
                 //jumping again will ignore the first if statement and move to this one.
                 //Gravity is inverted once again and becomes positive
-                else if (Gravity == -1)
+                else if (reverseGravity == true)
                 {
 
-                    Physics.gravity = new Vector3(0f, 1f, 0f);
+                    Physics.gravity = new Vector3(0f, 9.8f, 0f);
 
                     //Velocity is applied to the rigidbody with transform.up
-                    rb.velocity = transform.up * -jumpForce * Time.deltaTime;
+                   // rb.velocity = transform.up * -jumpForce * Time.deltaTime;
+                    rb.AddForce(new Vector3(0f, -gravityForce, 0f), ForceMode.Impulse);
 
+                    
                     //Change the Gravity value to positive 1
-                    Gravity = 1;
+                   // Gravity = 1;
 
                 }
-
             }
         }
     }
@@ -77,12 +82,11 @@ public class PlayerMovement : MonoBehaviour
        void FixedUpdate()
       {
        
-        //dirX = Input.GetAxis("Horizontal") * speed;
    
         //Apply force to rigid body to move character
         rb.velocity = new Vector3(dirX, rb.velocity.y, 0f);
 
-    }
+        }
 
     //Layer Collision Detetction
 
