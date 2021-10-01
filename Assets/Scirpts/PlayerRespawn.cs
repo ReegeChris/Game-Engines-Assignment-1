@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PlayerRespawn : MonoBehaviour
 {
-   // public GameObject Player;
+    //References: https://www.youtube.com/watch?v=FPU3uR3HYGo
+
+
+    // public GameObject Player;
     public GameObject respawnPoint;
     
     
@@ -16,11 +19,13 @@ public class PlayerRespawn : MonoBehaviour
 
     private void OnCollisionEnter(Collision col)
     {
+        //If the player collides with an object tagged with "Death Barrier",
+        //Respawn player at the respawn point
         if(col.collider.tag == "Death Barrier")
         {
             transform.position = respawnPoint.transform.position;
 
-            Debug.Log("Amogus");
+           
         }
     }
 }

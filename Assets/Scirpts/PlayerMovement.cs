@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
             //Gravity flipping mechanic
             if (isGrounded == true)
             {
+                //Set rverse gravity to false
                 reverseGravity = !reverseGravity;
 
                 //if the gravity is set to one and is grounded,
