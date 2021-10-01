@@ -4,7 +4,7 @@ Game Description
 My game is a 2D side scroller. The core gameplay is to reach the end of the level by dodging obstacles using inversions in gravity.  
 To scope it for this assignment I chose to have limited detail on design, to polish and create engaging gameplay.
 
-Controls
+Controls:
 Spacebar to invert gravity
 
 Object Inventory
